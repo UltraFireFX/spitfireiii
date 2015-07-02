@@ -11,6 +11,7 @@ config =
 	dbmaintable = "evony",
 	dbservertable = "s2",
 	sqlhost = "127.0.0.1",
+	sqlport = "3306";
 	sqluser = "eps",
 	sqlpass = "eps",
 	servername = "s2",

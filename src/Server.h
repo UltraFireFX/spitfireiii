@@ -203,7 +203,7 @@ public:
 	lua_State *L;
 
 	// MySQL
-	string sqlhost, sqluser, sqlpass, bindaddress, bindport;
+	string sqlhost, sqlport, sqluser, sqlpass, bindaddress, bindport;
 	string dbmaintable;
 	string dbservertable;
 

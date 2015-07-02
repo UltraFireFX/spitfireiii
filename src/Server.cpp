@@ -1057,6 +1057,15 @@ bool Server::Init()
 		lua_pop(L, 1);
 	}
 
+	//sql port
+	{
+		lua_getfield(L, -1, "sqlport");
+		temp = (char*)lua_tostring(L, -1);
+		if (temp == 0) { consoleLogger->information("Invalid sqlport setting."); return false; }
+		sqlport = temp;
+		lua_pop(L, 1);
+	}
+
 	//sql user
 	{
 		lua_getfield(L, -1, "sqluser");
@@ -1112,8 +1121,8 @@ bool Server::ConnectSQL()
 {
 	try
 	{
-		accountpool = new SessionPool("MySQL", "host=" + sqlhost + ";port=3306;db=" + dbmaintable + ";user=" + sqluser + ";password=" + sqlpass + ";compress=true;auto-reconnect=true");
-		serverpool = new SessionPool("MySQL", "host=" + sqlhost + ";port=3306;db=" + dbservertable + ";user=" + sqluser + ";password=" + sqlpass + ";compress=true;auto-reconnect=true");
+		accountpool = new SessionPool("MySQL", "host=" + sqlhost + ";port=" + sqlport + ";db=" + dbmaintable + ";user=" + sqluser + ";password=" + sqlpass + ";compress=true;auto-reconnect=true");
+		serverpool = new SessionPool("MySQL", "host=" + sqlhost + ";port=" + sqlport + ";db=" + dbservertable + ";user=" + sqluser + ";password=" + sqlpass + ";compress=true;auto-reconnect=true");
 	}
 	catch (Poco::Exception& exc)
 	{
