@@ -273,7 +273,7 @@ void Server::run()
 					x++;
 				}
 
-				m_buildingconfig[cfgid][level].limit = rs.value("limit").convert<int32_t>();
+				m_buildingconfig[cfgid][level].limit = rs.value("blimit").convert<int32_t>();
 				m_buildingconfig[cfgid][level].inside = rs.value("inside").convert<int32_t>();
 			}
 		}
