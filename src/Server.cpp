@@ -209,6 +209,7 @@ void Server::run()
 		Session ses(accountpool->get());
 
 		{
+			consoleLogger->information("Loading 'config_building'.");
 			Statement select(ses);
 			select << "SELECT * FROM `config_building`;";
 			select.execute();
@@ -279,6 +280,7 @@ void Server::run()
 		}
 
 		{
+			consoleLogger->information("Loading 'config_troops'.");
 			Statement select(ses);
 			select << "SELECT * FROM `config_troops`;";
 			select.execute();
@@ -346,6 +348,7 @@ void Server::run()
 
 
 		{
+			consoleLogger->information("Loading 'config_research'.");
 			Statement select(ses);
 			select << "SELECT * FROM `config_research`;";
 			select.execute();
@@ -413,6 +416,7 @@ void Server::run()
 
 
 		{
+			consoleLogger->information("Loading 'config_items'.");
 			Statement select(ses);
 			select << "SELECT * FROM `config_items`;";
 			select.execute();
